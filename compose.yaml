@@ -1,0 +1,10 @@
+# Runs the project with Java 25 without installing Java. Your folder is mounted, so every command uses your latest code.
+#   docker compose run --rm app java src/app/Main.java
+#   docker compose run --rm app java src/app/WorkerTest.java
+services:
+  app:
+    image: eclipse-temurin:25.0.1_8-jdk
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: java src/app/Main.java
